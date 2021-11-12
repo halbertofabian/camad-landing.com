@@ -622,6 +622,9 @@ img.aligncenter {
 .dark-bg {
 	background-color: #1c1c1c;
 }
+.light-bg {
+	background-color: #ffff;
+}
 
 .bg-img-full {
 	background-repeat: no-repeat;
@@ -846,7 +849,7 @@ body.boxed-v #wrapper {
 #header {
 	z-index: 2;
 	position: relative;
-	padding: 34px 0 70px;
+	padding: 0px 0 70px;
 }
 
 #header.sticky #nav {
