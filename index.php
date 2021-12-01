@@ -86,7 +86,7 @@ require_once 'php/registro.controlador.php';
                 </nav>
                 <nav class="navbar navbar-expand-lg navbar-light sticky-top bg-light">
                     <a class="navbar-brand" href="#">
-                        <img src="<?php echo HTTP_HOST ?>images/logo_sead_2.png" alt="Logo sead" class="img-responsive mr-5" width="200">
+                        <img src="<?= HTTP_HOST . 'images/logo_sead_2.png' ?>" alt="Logo sead" class="img-responsive mr-5" width="200">
                     </a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
@@ -119,7 +119,7 @@ require_once 'php/registro.controlador.php';
                     <!-- main banner section start here -->
                     <div class="row bg-img-ful main-banner bg-img-parallax" style="background-image: url('./images/imagen-graduados-index.jpg');" data-scroll-index="0">
                         <div class="col-xs-12 col-sm-6 col-md-7 text-center">
-                            <img src="./images/mapa-certificamos-a-nivel-nacional.png" class="mb-5" width="30%" alt="">
+                            <img src=" <?= HTTP_HOST. 'images/mapa-certificamos-a-nivel-nacional.png' ?>" class="mb-5" width="50%" alt="">
                             <div class="alert m-auto" style="background-color: #0351A0;">
                                 <h1 class="heading">Termina tu prepa</h1>
                             </div>
@@ -153,9 +153,39 @@ require_once 'php/registro.controlador.php';
                                             </div>
                                             <div class="form-group col-12">
                                                 <select class="form-control" name="" id="" data-error="NEW ERROR MESSAGE">
-                                                    <option>Estado</option>
-                                                    <option></option>
-                                                    <option></option>
+                                                    <option value="">Estado</option>
+                                                    <option value="Aguascalientes">Aguascalientes</option>
+                                                    <option value="Baja California">Baja California</option>
+                                                    <option value="Baja California Sur">Baja California Sur</option>
+                                                    <option value="Campeche">Campeche</option>
+                                                    <option value="Chiapas">Chiapas</option>
+                                                    <option value="Chihuahua">Chihuahua</option>
+                                                    <option value="CDMX">Ciudad de México</option>
+                                                    <option value="Coahuila">Coahuila</option>
+                                                    <option value="Colima">Colima</option>
+                                                    <option value="Durango">Durango</option>
+                                                    <option value="Estado de México">Estado de México</option>
+                                                    <option value="Guanajuato">Guanajuato</option>
+                                                    <option value="Guerrero">Guerrero</option>
+                                                    <option value="Hidalgo">Hidalgo</option>
+                                                    <option value="Jalisco">Jalisco</option>
+                                                    <option value="Michoacán">Michoacán</option>
+                                                    <option value="Morelos">Morelos</option>
+                                                    <option value="Nayarit">Nayarit</option>
+                                                    <option value="Nuevo León">Nuevo León</option>
+                                                    <option value="Oaxaca">Oaxaca</option>
+                                                    <option value="Puebla">Puebla</option>
+                                                    <option value="Querétaro">Querétaro</option>
+                                                    <option value="Quintana Roo">Quintana Roo</option>
+                                                    <option value="San Luis Potosí">San Luis Potosí</option>
+                                                    <option value="Sinaloa">Sinaloa</option>
+                                                    <option value="Sonora">Sonora</option>
+                                                    <option value="Tabasco">Tabasco</option>
+                                                    <option value="Tamaulipas">Tamaulipas</option>
+                                                    <option value="Tlaxcala">Tlaxcala</option>
+                                                    <option value="Veracruz">Veracruz</option>
+                                                    <option value="Yucatán">Yucatán</option>
+                                                    <option value="Zacatecas">Zacatecas</option>
                                                 </select>
                                             </div>
                                             <div class="form-group col-12 text-center hidden">

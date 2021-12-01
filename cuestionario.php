@@ -59,7 +59,7 @@ require_once 'php/registro.controlador.php';
 
 <body>
     <div class="container-fluid">
-        <form id="formulario" action="/cuestionario/cuestionario-beneficiario/accion" method="POST">
+        <form id="formCuestionario">
             <div class="row d-flex justify-content-center">
                 <div class="col-xl-10 ol-lg-11 col-md-12 col-sm-12">
                     <nav class="navbar navbar-dark p-3" style="background-color: #0351A0;">
@@ -96,8 +96,8 @@ require_once 'php/registro.controlador.php';
                         </div>
                     </nav>
                     <nav class="navbar navbar-expand-lg navbar-light sticky-top bg-light">
-                        <a class="navbar-brand" href="#">
-                            <img src="<?php echo HTTP_HOST ?>images/logo_sead_2.png" alt="Logo sead" class="img-responsive mr-5" width="200">
+                        <a class="navbar-brand" href="index.php">
+                            <img src="<?= HTTP_HOST . 'images/logo_sead_2.png' ?>" alt="Logo sead" class="img-responsive mr-5" width="200">
                         </a>
                         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"></span>
@@ -129,20 +129,18 @@ require_once 'php/registro.controlador.php';
                     <div class="container-fluid mb-5 shadow">
                         <div class="row p-5" style="background-color: #EEEEEE;">
                             <div class="col-xl-9 col-sm-12 col-12">
-                                <h1 class="text-dark text-center">SOLICITUD DE ASPIRANTE A LA ACREDITACIÓN DE PREPARATORIA</h1>
+                                <h1 class="text-dark text-center font-weight-bold">SOLICITUD DE ASPIRANTE A LA ACREDITACIÓN DE PREPARATORIA</h1>
+                                <h3 class="text-dark">por Experiencia laboral y/o conocimientos adquiridos de manera autodidacta Acuerdo 286</h3>
                             </div>
                             <div class="col-xl-3 col-sm-12 col-12">
                                 <img class="img-responsive m-auto" src="./images/logo-prepa-x-experiencia.png" width="100%" alt="">
-                            </div>
-                            <div class="col-xl-12 col-sm-12 col-12">
-                                <h3 class="text-dark">por Experiencia laboral y/o conocimientos adquiridos de manera autodidacta Acuerdo 286</h3>
                             </div>
                         </div>
                         <div class="row mb-5">
                             <div class="col-xl-6 col-sm-12 col-12">
                                 <div class="form-group">
-                                    <label class="h3 text-dark" for="sct_estado_tramite">Estado de la republica en el que se desea realizar el tramite*: </label>
-                                    <select class="form-control input-lg" name="sct_estado_tramite" id="sct_estado_tramite" required>
+                                    <label class="h3 text-dark" for="est_estado_tramite">Estado de la republica en el que se desea realizar el tramite*: </label>
+                                    <select class="form-control input-lg" name="est_estado_tramite" id="est_estado_tramite" required>
                                         <option value="">-Seleccionar estado--</option>
                                         <option value="Aguascalientes">Aguascalientes</option>
                                         <option value="Baja California">Baja California</option>
@@ -183,68 +181,98 @@ require_once 'php/registro.controlador.php';
                         <div class="row">
                             <div class="col-xl-12 col-sm-12 col-12">
                                 <div class="card-header text-center" style="background-color: #0087C8;">
-                                    <strong class="h2" style="color:aliceblue">DATOS PERSONALES </strong>
+                                    <h2 class="font-weight-bold" style="color:aliceblue">DATOS PERSONALES </h2>
                                 </div>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-xl-8 col-sm-12 col-12">
+                            <div class="col-xl-8 col-md-8 col-sm-12 col-12">
                                 <div class="form-group">
-                                    <label class="h3 text-dark" for="sct_curp">Clave Única de Registro de Población(CURP)</label>
-                                    <input type="text" class="form-control input-lg" name="sct_curp" id="sct_curp" placeholder="Ingresa tu curp">
+                                    <label class="h3 text-dark" for="est_curp">Clave Única de Registro de Población(CURP)</label>
+                                    <input type="text" class="form-control input-lg" name="est_curp" id="est_curp" placeholder="Ingresa tu curp">
                                 </div>
                             </div>
-                            <div class="col-xl-4 col-sm-12 col-12">
+                            <div class="col-xl-4 col-md-4 col-sm-12 col-12">
                                 <div class="form-group">
-                                    <label class="h3 text-dark" for="sct_correo">Correo electronico*:</label>
-                                    <input type="email" class="form-control input-lg" name="sct_correo" id="sct_correo" required placeholder="ejemplo@ejemplo.com">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-xl-4 col-sm-12 col-12">
-                                <div class="form-group">
-                                    <label class="h3 text-dark" for="sct_nombre">Nombres*:</label>
-                                    <input type="text" class="form-control input-lg" name="sct_nombre" id="sct_nombre" required placeholder="Ingresa tu(s) nombre(s)">
-                                </div>
-                            </div>
-                            <div class="col-xl-4 col-sm-12 col-12">
-                                <div class="form-group">
-                                    <label class="h3 text-dark" for="sct_app">Primer apellido*:</label>
-                                    <input type="email" class="form-control input-lg" name="sct_app" id="sct_app" required placeholder="Ingresa tu primer apellido">
-                                </div>
-                            </div>
-                            <div class="col-xl-4 col-sm-12 col-12">
-                                <div class="form-group">
-                                    <label class="h3 text-dark" for="sct_apm">Segundo apellido*:</label>
-                                    <input type="email" class="form-control input-lg" name="sct_apm" id="sct_apm" required placeholder="Ingresa tu segundo apellido">
+                                    <label class="h3 text-dark" for="est_correo">Correo electronico*:</label>
+                                    <input type="email" class="form-control input-lg" name="est_correo" id="est_correo" required placeholder="ejemplo@ejemplo.com">
                                 </div>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-xl-4 col-sm-12 col-12">
+                            <div class="col-xl-4 col-md-4 col-sm-12 col-12">
                                 <div class="form-group">
-                                    <label class="h3 text-dark" for="sct_sexo">Sexo*: </label>
-                                    <select class="form-control input-lg" name="sct_sexo" id="sct_sexo" required>
+                                    <label class="h3 text-dark" for="est_nombre">Nombres*:</label>
+                                    <input type="text" class="form-control input-lg" name="est_nombre" id="est_nombre" required placeholder="Ingresa tu(s) nombre(s)">
+                                </div>
+                            </div>
+                            <div class="col-xl-4 col-md-4 col-sm-12 col-12">
+                                <div class="form-group">
+                                    <label class="h3 text-dark" for="est_app">Primer apellido*:</label>
+                                    <input type="text" class="form-control input-lg" name="est_app" id="est_app" required placeholder="Ingresa tu primer apellido">
+                                </div>
+                            </div>
+                            <div class="col-xl-4 col-md-4 col-sm-12 col-12">
+                                <div class="form-group">
+                                    <label class="h3 text-dark" for="est_apm">Segundo apellido*:</label>
+                                    <input type="text" class="form-control input-lg" name="est_apm" id="est_apm" required placeholder="Ingresa tu segundo apellido">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xl-4 col-md-4 col-sm-12 col-12">
+                                <div class="form-group">
+                                    <label class="h3 text-dark" for="est_sexo">Sexo*: </label>
+                                    <select class="form-control input-lg" name="est_sexo" id="est_sexo" required>
                                         <option value="">Selecciona</option>
-                                        <option>Hombre</option>
-                                        <option>Mujer</option>
+                                        <option value="Masculino">Hombre</option>
+                                        <option value="Femenino">Mujer</option>
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-xl-4 col-sm-12 col-12">
+                            <div class="col-xl-4 col-md-4 col-sm-12 col-12">
                                 <div class="form-group">
-                                    <label class="h3 text-dark" for="sct_fecha_nac">Fecha de nacimiento*:</label>
-                                    <input type="date" class="form-control input-lg" name="sct_fecha_nac" id="sct_fecha_nac" required placeholder="Selecciona">
+                                    <label class="h3 text-dark" for="est_fecha_nac">Fecha de nacimiento*:</label>
+                                    <input type="date" class="form-control input-lg" name="est_fecha_nac" id="est_fecha_nac" required placeholder="Selecciona">
                                 </div>
                             </div>
-                            <div class="col-xl-4 col-sm-12 col-12">
+                            <div class="col-xl-4 col-md-4 col-sm-12 col-12">
                                 <div class="form-group">
-                                    <label class="h3 text-dark" for="sct_lugar_nac">Lugar de nacimiento*: </label>
-                                    <select class="form-control input-lg" name="sct_lugar_nac" id="sct_lugar_nac" required>
+                                    <label class="h3 text-dark" for="est_lugar_nac">Estado de nacimiento*: </label>
+                                    <select class="form-control input-lg" name="est_lugar_nac" id="est_lugar_nac" required>
                                         <option value="">Selecciona</option>
-                                        <option></option>
-                                        <option></option>
+                                        <option value="Aguascalientes">Aguascalientes</option>
+                                        <option value="Baja California">Baja California</option>
+                                        <option value="Baja California Sur">Baja California Sur</option>
+                                        <option value="Campeche">Campeche</option>
+                                        <option value="Chiapas">Chiapas</option>
+                                        <option value="Chihuahua">Chihuahua</option>
+                                        <option value="CDMX">Ciudad de México</option>
+                                        <option value="Coahuila">Coahuila</option>
+                                        <option value="Colima">Colima</option>
+                                        <option value="Durango">Durango</option>
+                                        <option value="Estado de México">Estado de México</option>
+                                        <option value="Guanajuato">Guanajuato</option>
+                                        <option value="Guerrero">Guerrero</option>
+                                        <option value="Hidalgo">Hidalgo</option>
+                                        <option value="Jalisco">Jalisco</option>
+                                        <option value="Michoacán">Michoacán</option>
+                                        <option value="Morelos">Morelos</option>
+                                        <option value="Nayarit">Nayarit</option>
+                                        <option value="Nuevo León">Nuevo León</option>
+                                        <option value="Oaxaca">Oaxaca</option>
+                                        <option value="Puebla">Puebla</option>
+                                        <option value="Querétaro">Querétaro</option>
+                                        <option value="Quintana Roo">Quintana Roo</option>
+                                        <option value="San Luis Potosí">San Luis Potosí</option>
+                                        <option value="Sinaloa">Sinaloa</option>
+                                        <option value="Sonora">Sonora</option>
+                                        <option value="Tabasco">Tabasco</option>
+                                        <option value="Tamaulipas">Tamaulipas</option>
+                                        <option value="Tlaxcala">Tlaxcala</option>
+                                        <option value="Veracruz">Veracruz</option>
+                                        <option value="Yucatán">Yucatán</option>
+                                        <option value="Zacatecas">Zacatecas</option>
                                     </select>
                                 </div>
                             </div>
@@ -252,31 +280,31 @@ require_once 'php/registro.controlador.php';
                         <div class="row">
                             <div class="col-xl-12 col-sm-12 col-12">
                                 <div class="card-header text-center" style="background-color: #EEEEEE;">
-                                    <strong class="h2 text-dark">AUTORIZACIÓN PARA REALIZAR EL TRAMITE </strong>
+                                    <h2 class="font-weight-bold text-dark">AUTORIZACIÓN PARA REALIZAR EL TRAMITE </h2>
                                 </div>
-                                <h4 class="text-dark text-justify">Autorizar a la persona que se indica a continuación, a efectode que mi nombre y represetanción, pueda recibir toda clase de notificaciones, asi como para realizar los tramites relacionados a la presente solicitud de revalidación, y/o equivalencia de estudios, y los que en su caso, se requieran durante el procedimiento respectivo.</h4>
+                                <h4 class="text-dark text-justify">Autorizar a la persona que se indica a continuación, a efecto de que mi nombre y represetanción, pueda recibir toda clase de notificaciones, asi como para realizar los tramites relacionados a la presente solicitud de revalidación, y/o equivalencia de estudios, y los que en su caso, se requieran durante el procedimiento respectivo.</h4>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-xl-12 col-sm-12 col-12">
                                 <div class="form-group">
-                                    <label class="h3 text-dark" for="sct_nom_comp">Nombre completo*:</label>
-                                    <input type="text" class="form-control input-lg" name="sct_nom_comp" id="sct_nom_comp" required placeholder="Ingresa nombre completo">
+                                    <label class="h3 text-dark" for="est_nom_comp">Nombre completo*:</label>
+                                    <input type="text" class="form-control input-lg" name="est_nom_comp" id="est_nom_comp" required placeholder="Ingresa nombre completo">
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-xl-12 col-sm-12 col-12">
                                 <div class="card-header text-center" style="background-color: #0087C8;">
-                                    <strong class="h2" style="color:aliceblue">DIRECCIÓN DEL SOLICITANTE </strong>
+                                    <h2 class="font-weight-bold" style="color:aliceblue">DIRECCIÓN DEL SOLICITANTE </h2>
                                 </div>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-xl-4 col-sm-12 col-12">
+                            <div class="col-xl-4 col-md-4 col-sm-12 col-12">
                                 <div class="form-group">
-                                    <label class="h3 text-dark" for="sct_estado">Estado*:</label>
-                                    <select class="form-control input-lg" name="sct_estado" id="sct_estado" required>
+                                    <label class="h3 text-dark" for="est_estado">Estado*:</label>
+                                    <select class="form-control input-lg" name="est_estado" id="est_estado" required>
                                         <option>Selecciona</option>
                                         <option value="Aguascalientes">Aguascalientes</option>
                                         <option value="Baja California">Baja California</option>
@@ -313,19 +341,19 @@ require_once 'php/registro.controlador.php';
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-xl-4 col-sm-12 col-12">
+                            <div class="col-xl-4 col-md-4 col-sm-12 col-12">
                                 <div class="form-group">
-                                    <label class="h3 text-dark" for="sct_municipio">Municipio o Alcaldia*:</label>
-                                    <select class="form-control input-lg" name="sct_municipio" id="sct_municipio" required>
+                                    <label class="h3 text-dark" for="est_municipio">Municipio o Alcaldia*:</label>
+                                    <select class="form-control input-lg" name="est_municipio" id="est_municipio" required>
                                         <option>Selecciona</option>
 
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-xl-4 col-sm-12 col-12">
+                            <div class="col-xl-4 col-md-4 col-sm-12 col-12">
                                 <div class="form-group">
-                                    <label class="h3 text-dark" for="sct_colonia">Colonia*:</label>
-                                    <select class="form-control input-lg" name="sct_colonia" id="sct_colonia" required>
+                                    <label class="h3 text-dark" for="est_colonia">Colonia*:</label>
+                                    <select class="form-control input-lg" name="est_colonia" id="est_colonia" required>
                                         <option>Selecciona</option>
 
                                     </select>
@@ -333,97 +361,97 @@ require_once 'php/registro.controlador.php';
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-xl-4 col-sm-12 col-12">
+                            <div class="col-xl-4 col-md-4 col-sm-12 col-12">
                                 <div class="form-group">
-                                    <label class="h3 text-dark" for="sct_calle">Calle*:</label>
-                                    <input type="text" class="form-control input-lg" name="sct_calle" id="sct_calle" required placeholder="Ingresa tu calle">
+                                    <label class="h3 text-dark" for="est_calle">Calle*:</label>
+                                    <input type="text" class="form-control input-lg" name="est_calle" id="est_calle" required placeholder="Ingresa tu calle">
                                 </div>
                             </div>
-                            <div class="col-xl-4 col-sm-12 col-12">
+                            <div class="col-xl-4 col-md-4 col-sm-12 col-12">
                                 <div class="form-group">
-                                    <label class="h3 text-dark" for="sct_num_ext">Numero exterior*:</label>
-                                    <input type="number" class="form-control input-lg" name="sct_num_ext" id="sct_num_ext" required placeholder="Numero exterior">
+                                    <label class="h3 text-dark" for="est_num_ext">Numero exterior*:</label>
+                                    <input type="number" class="form-control input-lg" name="est_num_ext" id="est_num_ext" required placeholder="Numero exterior">
                                 </div>
                             </div>
-                            <div class="col-xl-4 col-sm-12 col-12">
+                            <div class="col-xl-4 col-md-4 col-sm-12 col-12">
                                 <div class="form-group">
-                                    <label class="h3 text-dark" for="sct_num_int">Numero interior:</label>
-                                    <input type="number" class="form-control input-lg" name="sct_num_int" id="sct_num_int" placeholder="Numero interior">
+                                    <label class="h3 text-dark" for="est_num_int">Numero interior:</label>
+                                    <input type="number" class="form-control input-lg" name="est_num_int" id="est_num_int" placeholder="Numero interior">
                                 </div>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-xl-4 col-sm-12 col-12">
+                            <div class="col-xl-4 col-md-4 col-sm-12 col-12">
                                 <div class="form-group">
-                                    <label class="h3 text-dark" for="sct_codigo_postal">Codigo postal*:</label>
-                                    <input type="number" class="form-control input-lg" name="sct_codigo_postal" id="sct_codigo_postal" required placeholder="Ingresa tu codigo postal">
+                                    <label class="h3 text-dark" for="est_codigo_postal">Codigo postal*:</label>
+                                    <input type="number" class="form-control input-lg" name="est_codigo_postal" id="est_codigo_postal" required placeholder="Ingresa tu codigo postal">
                                 </div>
                             </div>
-                            <div class="col-xl-1 col-md-1 col-sm-12 col-12">
+                            <div class="col-xl-1 col-md-4 col-md-1 col-xs-4">
                                 <div class="form-group">
-                                    <label class="h3 text-dark" for="sct_lada_tel_fijo">Lada*:</label>
-                                    <input type="number" class="form-control input-lg" name="sct_lada_tel_fijo" id="sct_lada_tel_fijo" required placeholder="Lada">
+                                    <label class="h3 text-dark" for="est_lada_tel_fijo">Lada*:</label>
+                                    <input type="number" class="form-control input-lg" name="est_lada_tel_fijo" id="est_lada_tel_fijo" required placeholder="Lada">
                                 </div>
                             </div>
-                            <div class="col-xl-3 col-md-1 col-sm-12 col-12">
+                            <div class="col-xl-3 col-md-4 col-md-1 col-xs-8">
                                 <div class="form-group">
-                                    <label class="h3 text-dark" for="sct_tel_fijo">Telefono fijo*:</label>
-                                    <input type="number" class="form-control input-lg" name="sct_tel_fijo" id="sct_tel_fijo" required placeholder="Telefono fijo">
+                                    <label class="h3 text-dark" for="est_tel_fijo">Telefono fijo*:</label>
+                                    <input type="number" class="form-control input-lg" name="est_tel_fijo" id="est_tel_fijo" required placeholder="Telefono fijo">
                                 </div>
                             </div>
-                            <div class="col-xl-1 col-md-1 col-sm-12 col-12">
+                            <div class="col-xl-1 col-md-4 col-md-1 col-xs-4">
                                 <div class="form-group">
-                                    <label class="h3 text-dark" for="sct_lada_tel_movil">Lada*:</label>
-                                    <input type="number" class="form-control input-lg" name="sct_lada_tel_movil" id="sct_lada_tel_movil" required placeholder="Lada">
+                                    <label class="h3 text-dark" for="est_lada_tel_movil">Lada*:</label>
+                                    <input type="number" class="form-control input-lg" name="est_lada_tel_movil" id="est_lada_tel_movil" required placeholder="Lada">
                                 </div>
                             </div>
-                            <div class="col-xl-3 col-md-1 col-sm-12 col-12">
+                            <div class="col-xl-3 col-md-4 col-md-1 col-xs-8">
                                 <div class="form-group">
-                                    <label class="h3 text-dark" for="sct_tel_movil">Telefono móvil*:</label>
-                                    <input type="number" class="form-control input-lg" name="sct_tel_movil" id="sct_tel_movil" required placeholder="Telefono móvil">
+                                    <label class="h3 text-dark" for="est_tel_movil">Telefono móvil*:</label>
+                                    <input type="number" class="form-control input-lg" name="est_tel_movil" id="est_tel_movil" required placeholder="Telefono móvil">
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-xl-12 col-sm-12 col-12">
                                 <div class="card-header text-center" style="background-color: #EEEEEE;">
-                                    <strong class="h2 text-dark">INSTITUCIÓN DONDE SE CURSARON LOS ESTUDIOS PREVIOS </strong>
+                                    <h2 class="font-weight-bold text-dark">INSTITUCIÓN DONDE SE CURSARON LOS ESTUDIOS PREVIOS </h2>
                                 </div>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-xl-8 col-sm-12 col-12">
+                            <div class="col-xl-8 col-md-8 col-sm-12 col-12">
                                 <div class="form-group">
-                                    <label class="h3 text-dark" for="sct_inst_nom">Nombre de la institución donde cursaste los estudios:</label>
-                                    <input type="text" class="form-control input-lg" name="sct_inst_nom" id="sct_inst_nom" placeholder="Ingresa el nombre de la institución">
+                                    <label class="h3 text-dark" for="est_inst_nom">Nombre de la institución donde cursaste los estudios:</label>
+                                    <input type="text" class="form-control input-lg" name="est_inst_nom" id="est_inst_nom" placeholder="Ingresa el nombre de la institución">
                                 </div>
                             </div>
-                            <div class="col-xl-4 col-sm-12 col-12">
+                            <div class="col-xl-4 col-md-4 col-sm-12 col-12">
                                 <div class="form-group">
-                                    <label class="h3 text-dark" for="sct_inst_tipo">Tipo de institución*:</label>
-                                    <select class="form-control input-lg" name="sct_inst_tipo" id="sct_inst_tipo" required>
+                                    <label class="h3 text-dark" for="est_inst_tipo">Tipo de institución*:</label>
+                                    <select class="form-control input-lg" name="est_inst_tipo" id="est_inst_tipo" required>
                                         <option>Selecciona</option>
-                                        <option></option>
-                                        <option></option>
+                                        <option value="PUBLICA">Pública</option>
+                                        <option value="PRIVADA">Privada</option>
                                     </select>
                                 </div>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-xl-4 col-sm-12 col-12">
+                            <div class="col-xl-4 col-md-4 col-sm-12 col-12">
                                 <div class="form-group">
-                                    <label class="h3 text-dark" for="sct_inst_pais">Pais*:</label>
-                                    <select class="form-control input-lg" name="sct_inst_pais" id="sct_inst_pais" required>
+                                    <label class="h3 text-dark" for="est_inst_pais">Pais*:</label>
+                                    <select class="form-control input-lg" name="est_inst_pais" id="est_inst_pais" required>
                                         <option>Selecciona</option>
                                         <option value="México">México</option>
                                         <option value="Otro">Otro</option>
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-xl-4 col-sm-12 col-12">
+                            <div class="col-xl-4 col-md-4 col-sm-12 col-12">
                                 <div class="form-group">
-                                    <label class="h3 text-dark" for="sct_inst_estado">Estado*:</label>
-                                    <select class="form-control input-lg" name="sct_inst_estado" id="sct_inst_estado" required>
+                                    <label class="h3 text-dark" for="est_inst_estado">Estado*:</label>
+                                    <select class="form-control input-lg" name="est_inst_estado" id="est_inst_estado" required>
                                         <option>Selecciona</option>
                                         <option value="Aguascalientes">Aguascalientes</option>
                                         <option value="Baja California">Baja California</option>
@@ -460,10 +488,10 @@ require_once 'php/registro.controlador.php';
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-xl-4 col-sm-12 col-12">
+                            <div class="col-xl-4 col-md-4 col-sm-12 col-12">
                                 <div class="form-group">
-                                    <label class="h3 text-dark" for="sct_inst_municipio">Municipio*:</label>
-                                    <select class="form-control input-lg" name="sct_inst_municipio" id="sct_inst_municipio" required>
+                                    <label class="h3 text-dark" for="est_inst_municipio">Municipio*:</label>
+                                    <select class="form-control input-lg" name="est_inst_municipio" id="est_inst_municipio" required>
                                         <option>Selecciona</option>
 
                                     </select>
@@ -471,236 +499,257 @@ require_once 'php/registro.controlador.php';
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-xl-4 col-sm-12 col-12">
+                            <div class="col-xl-4 col-md-4 col-sm-12 col-12">
                                 <div class="form-group">
-                                    <label class="h3 text-dark" for="sct_inst_colonia">Colonia*:</label>
-                                    <select class="form-control input-lg" name="sct_inst_colonia" id="sct_inst_colonia" required>
+                                    <label class="h3 text-dark" for="est_inst_colonia">Colonia*:</label>
+                                    <select class="form-control input-lg" name="est_inst_colonia" id="est_inst_colonia" required>
                                         <option>Selecciona</option>
 
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-xl-4 col-sm-12 col-12">
+                            <div class="col-xl-4 col-md-4 col-sm-12 col-12">
                                 <div class="form-group">
-                                    <label class="h3 text-dark" for="">Calle:</label>
-                                    <input type="text" class="form-control input-lg" name="" id="" placeholder="Ingrese la calle">
+                                    <label class="h3 text-dark" for="est_inst_calle">Calle:</label>
+                                    <input type="text" class="form-control input-lg" name="est_inst_calle" id="est_inst_calle" placeholder="Ingrese la calle">
                                 </div>
                             </div>
-                            <div class="col-xl-4 col-sm-12 col-12">
+                            <div class="col-xl-4 col-md-4 col-sm-12 col-12">
                                 <div class="form-group">
-                                    <label class="h3 text-dark" for="">Numero exterior:</label>
-                                    <input type="number" class="form-control input-lg" name="" id="" placeholder="Numero exterior">
+                                    <label class="h3 text-dark" for="est_inst_num_ext">Numero exterior:</label>
+                                    <input type="number" class="form-control input-lg" name="est_inst_num_ext" id="est_inst_num_ext" placeholder="Numero exterior">
                                 </div>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-xl-4 col-sm-12 col-12">
+                            <div class="col-xl-4 col-md-4 col-sm-12 col-12">
                                 <div class="form-group">
-                                    <label class="h3 text-dark" for="">Código postal:</label>
-                                    <input type="text" class="form-control input-lg" name="" id="" placeholder="Ingresa codigo postal">
+                                    <label class="h3 text-dark" for="est_inst_cod_pos">Código postal:</label>
+                                    <input type="text" class="form-control input-lg" name="est_inst_cod_pos" id="est_inst_cod_pos" placeholder="Ingresa codigo postal">
                                 </div>
                             </div>
-                            <div class="col-xl-4 col-sm-12 col-12">
+                            <div class="col-xl-4 col-md-4 col-sm-12 col-12">
                                 <div class="form-group">
-                                    <label class="h3 text-dark" for="">Telefono:</label>
-                                    <input type="text" class="form-control input-lg" name="" id="" placeholder="Ingrese el telefono">
+                                    <label class="h3 text-dark" for="est_inst_tel">Telefono:</label>
+                                    <input type="text" class="form-control input-lg" name="est_inst_tel" id="est_inst_tel" placeholder="Ingrese el telefono">
                                 </div>
                             </div>
-                            <div class="col-xl-4 col-sm-12 col-12">
+                            <div class="col-xl-4 col-md-4 col-sm-12 col-12">
                                 <div class="form-group">
-                                    <label class="h3 text-dark" for="">Correo electrónico:</label>
-                                    <input type="email" class="form-control input-lg" name="" id="" placeholder="ejemplo@ejemplo.com">
+                                    <label class="h3 text-dark" for="est_inst_correo">Correo electrónico:</label>
+                                    <input type="email" class="form-control input-lg" name="est_inst_correo" id="est_inst_correo" placeholder="ejemplo@ejemplo.com">
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-xl-12 col-sm-12 col-12">
                                 <div class="card-header text-center" style="background-color: #0087C8;">
-                                    <strong class="h2" style="color:aliceblue">EXPERIENCIA LABORAL </strong>
+                                    <h2 class="font-weight-bold" style="color:aliceblue">EXPERIENCIA LABORAL </h2>
                                 </div>
                                 <h4 class="text-dark text-justify">Contesta de acuerdo a tu experiencia laboral mas reciente a la mas antigúa</h4>
                             </div>
                         </div>
                         <div class="row">
+                            <div class="col-xl-12 col-12">
+                                <h3><span class="badge badge-primary">TRABAJO 1</span></h3>
+                            </div>
+                        </div>
+                        <div class="row">
                             <div class="col-xl-6 col-sm-12 col-12">
                                 <div class="form-group">
-                                    <label class="h3 text-dark" for="">Nombre de la empresa*:</label>
-                                    <input type="text" class="form-control input-lg" name="" id="" required placeholder="Ingresa nombre de la empresa">
+                                    <label class="h3 text-dark" for="est_exp_nom_emp1">Nombre de la empresa*:</label>
+                                    <input type="text" class="form-control input-lg" name="est_exp_nom_emp1" id="est_exp_nom_emp1" placeholder="Ingresa nombre de la empresa">
                                 </div>
                             </div>
                             <div class="col-xl-6 col-sm-12 col-12">
                                 <div class="form-group">
-                                    <label class="h3 text-dark" for="">Cargo o puesto desempeñado*:</label>
-                                    <input type="text" class="form-control input-lg" name="" id="" required placeholder="Ingrese el puesto o cargo">
+                                    <label class="h3 text-dark" for="est_exp_cargo1">Cargo o puesto desempeñado*:</label>
+                                    <input type="text" class="form-control input-lg" name="est_exp_cargo1" id="est_exp_cargo1" placeholder="Ingrese el puesto o cargo">
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-xl-8 col-sm-12 col-12">
                                 <div class="form-group">
-                                    <label class="h3 text-dark" for="">Tiempo que presto sus servicios*:</label>
-                                    <input type="text" class="form-control input-lg" name="" id="" required placeholder="Ejemplo: dia, mes y año a dia mes y año">
+                                    <label class="h3 text-dark" for="est_exp_tiempo1">Tiempo que presto sus servicios*:</label>
+                                    <input type="text" class="form-control input-lg" name="est_exp_tiempo1" id="est_exp_tiempo1" placeholder="Ejemplo: dia, mes y año a dia mes y año">
                                 </div>
                             </div>
                             <div class="col-xl-4 col-sm-12 col-12">
                                 <div class="form-group">
-                                    <label class="h3 text-dark" for="">Telefono de la empresa*:</label>
-                                    <input type="number" class="form-control input-lg" name="" id="" required placeholder="Ingrese el telefono">
+                                    <label class="h3 text-dark" for="est_exp_tel1">Telefono de la empresa*:</label>
+                                    <input type="number" class="form-control input-lg" name="est_exp_tel1" id="est_exp_tel1" placeholder="Ingrese el telefono">
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-xl-8 col-sm-12 col-12">
                                 <div class="form-group">
-                                    <label class="h3 text-dark" for="">Cuenta con un comprobante de su servicio en la empresa*:</label>
-                                    <input type="text" class="form-control input-lg" name="" id="" required placeholder="Observaciones">
+                                    <label class="h3 text-dark" for="est_exp_comprobante1">Cuenta con un comprobante de su servicio en la empresa*:</label>
+                                    <input type="text" class="form-control input-lg" name="est_exp_comprobante1" id="est_exp_comprobante1" placeholder="Observaciones">
                                 </div>
                             </div>
                         </div>
-                        <hr>
+                        <div class="row">
+                            <div class="col-xl-12 col-12">
+                                <h3><span class="badge badge-primary">TRABAJO 2</span></h3>
+                            </div>
+                        </div>
                         <div class="row">
                             <div class="col-xl-6 col-sm-12 col-12">
                                 <div class="form-group">
-                                    <label class="h3 text-dark" for="">Nombre de la empresa*:</label>
-                                    <input type="text" class="form-control input-lg" name="" id="" required placeholder="Ingresa nombre de la empresa">
+                                    <label class="h3 text-dark" for="est_exp_nom_emp2">Nombre de la empresa*:</label>
+                                    <input type="text" class="form-control input-lg" name="est_exp_nom_emp2" id="est_exp_nom_emp2" placeholder="Ingresa nombre de la empresa">
                                 </div>
                             </div>
                             <div class="col-xl-6 col-sm-12 col-12">
                                 <div class="form-group">
-                                    <label class="h3 text-dark" for="">Cargo o puesto desempeñado*:</label>
-                                    <input type="text" class="form-control input-lg" name="" id="" required placeholder="Ingrese el puesto o cargo">
+                                    <label class="h3 text-dark" for="est_exp_cargo2">Cargo o puesto desempeñado*:</label>
+                                    <input type="text" class="form-control input-lg" name="est_exp_cargo2" id="est_exp_cargo2" placeholder="Ingrese el puesto o cargo">
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-xl-8 col-sm-12 col-12">
                                 <div class="form-group">
-                                    <label class="h3 text-dark" for="">Tiempo que presto sus servicios*:</label>
-                                    <input type="text" class="form-control input-lg" name="" id="" required placeholder="Ejemplo: dia, mes y año a dia mes y año">
+                                    <label class="h3 text-dark" for="est_exp_tiempo2">Tiempo que presto sus servicios*:</label>
+                                    <input type="text" class="form-control input-lg" name="est_exp_tiempo2" id="est_exp_tiempo2" placeholder="Ejemplo: dia, mes y año a dia mes y año">
                                 </div>
                             </div>
                             <div class="col-xl-4 col-sm-12 col-12">
                                 <div class="form-group">
-                                    <label class="h3 text-dark" for="">Telefono de la empresa*:</label>
-                                    <input type="number" class="form-control input-lg" name="" id="" required placeholder="Ingrese el telefono">
+                                    <label class="h3 text-dark" for="est_exp_tel2">Telefono de la empresa*:</label>
+                                    <input type="number" class="form-control input-lg" name="est_exp_tel2" id="est_exp_tel2" placeholder="Ingrese el telefono">
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-xl-8 col-sm-12 col-12">
                                 <div class="form-group">
-                                    <label class="h3 text-dark" for="">Cuenta con un comprobante de su servicio en la empresa*:</label>
-                                    <input type="text" class="form-control input-lg" name="" id="" required placeholder="Observaciones">
+                                    <label class="h3 text-dark" for="est_exp_comprobante2">Cuenta con un comprobante de su servicio en la empresa*:</label>
+                                    <input type="text" class="form-control input-lg" name="est_exp_comprobante2" id="est_exp_comprobante2" placeholder="Observaciones">
                                 </div>
                             </div>
                         </div>
-                        <hr>
+                        <div class="row">
+                            <div class="col-xl-12 col-12">
+                                <h3><span class="badge badge-primary">TRABAJO 3</span></h3>
+                            </div>
+                        </div>
                         <div class="row">
                             <div class="col-xl-6 col-sm-12 col-12">
                                 <div class="form-group">
-                                    <label class="h3 text-dark" for="">Nombre de la empresa*:</label>
-                                    <input type="text" class="form-control input-lg" name="" id="" required placeholder="Ingresa nombre de la empresa">
+                                    <label class="h3 text-dark" for="est_exp_nom_emp3">Nombre de la empresa*:</label>
+                                    <input type="text" class="form-control input-lg" name="est_exp_nom_emp3" id="est_exp_nom_emp3" placeholder="Ingresa nombre de la empresa">
                                 </div>
                             </div>
                             <div class="col-xl-6 col-sm-12 col-12">
                                 <div class="form-group">
-                                    <label class="h3 text-dark" for="">Cargo o puesto desempeñado*:</label>
-                                    <input type="text" class="form-control input-lg" name="" id="" required placeholder="Ingrese el puesto o cargo">
+                                    <label class="h3 text-dark" for="est_exp_cargo3">Cargo o puesto desempeñado*:</label>
+                                    <input type="text" class="form-control input-lg" name="est_exp_cargo3" id="est_exp_cargo3" placeholder="Ingrese el puesto o cargo">
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-xl-8 col-sm-12 col-12">
                                 <div class="form-group">
-                                    <label class="h3 text-dark" for="">Tiempo que presto sus servicios*:</label>
-                                    <input type="text" class="form-control input-lg" name="" id="" required placeholder="Ejemplo: dia, mes y año a dia mes y año">
+                                    <label class="h3 text-dark" for="est_exp_tiempo3">Tiempo que presto sus servicios*:</label>
+                                    <input type="text" class="form-control input-lg" name="est_exp_tiempo3" id="est_exp_tiempo3" placeholder="Ejemplo: dia, mes y año a dia mes y año">
                                 </div>
                             </div>
                             <div class="col-xl-4 col-sm-12 col-12">
                                 <div class="form-group">
-                                    <label class="h3 text-dark" for="">Telefono de la empresa*:</label>
-                                    <input type="number" class="form-control input-lg" name="" id="" required placeholder="Ingrese el telefono">
+                                    <label class="h3 text-dark" for="est_exp_tel3">Telefono de la empresa*:</label>
+                                    <input type="number" class="form-control input-lg" name="est_exp_tel3" id="est_exp_tel3" placeholder="Ingrese el telefono">
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-xl-8 col-sm-12 col-12">
                                 <div class="form-group">
-                                    <label class="h3 text-dark" for="">Cuenta con un comprobante de su servicio en la empresa*:</label>
-                                    <input type="text" class="form-control input-lg" name="" id="" required placeholder="Observaciones">
+                                    <label class="h3 text-dark" for="est_exp_comprobante3">Cuenta con un comprobante de su servicio en la empresa*:</label>
+                                    <input type="text" class="form-control input-lg" name="est_exp_comprobante3" id="est_exp_comprobante3" placeholder="Observaciones">
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-xl-12 col-sm-12 col-12">
                                 <div class="card-header text-center" style="background-color: #EEEEEE;">
-                                    <strong class="h2 text-dark">FORMACIÓN EXTRACURRICULAR </strong>
+                                    <h2 class="font-weight-bold text-dark">FORMACIÓN EXTRACURRICULAR </h2>
                                 </div>
                                 <h4 class="text-dark text-justify">En caso de contar con cursos, diplomados o estudios adicionales hacer mencion de los mismos.</h4>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-xl-6 col-sm-12 col-12">
+                            <div class="col-xl-6 col-md-6 col-xs-6">
+                                <h3><span class="badge badge-light">CURSO 1</span></h3>
+                            </div>
+                            <div class="col-xl-6 col-md-6 col-xs-6">
+                                <h3><span class="badge badge-light">CURSO 2</span></h3>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xl-6 col-md-6 col-xs-6">
                                 <div class="form-group">
-                                    <label class="h3 text-dark" for="">Curso:</label>
-                                    <input type="text" class="form-control input-lg" name="" id="" placeholder="Curso">
+                                    <label class="h3 text-dark" for="est_ext_curso1">Curso:</label>
+                                    <input type="text" class="form-control input-lg" name="est_ext_curso1" id="est_ext_curso1" placeholder="Curso">
                                 </div>
                             </div>
-                            <div class="col-xl-6 col-sm-12 col-12">
+                            <div class="col-xl-6 col-md-6 col-xs-6">
                                 <div class="form-group">
-                                    <label class="h3 text-dark" for="">Curso:</label>
-                                    <input type="number" class="form-control input-lg" name="" id="" placeholder="Curso">
+                                    <label class="h3 text-dark" for="est_ext_curso2">Curso:</label>
+                                    <input type="text" class="form-control input-lg" name="est_ext_curso2" id="est_ext_curso2" placeholder="Curso">
                                 </div>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-xl-6 col-sm-12 col-12">
+                            <div class="col-xl-6 col-md-6 col-xs-6">
                                 <div class="form-group">
-                                    <label class="h3 text-dark" for="">Institución o escuela que impartio:</label>
-                                    <input type="text" class="form-control input-lg" name="" id="" placeholder="Institución">
+                                    <label class="h3 text-dark" for="est_ext_inst1">Institución o escuela que impartio:</label>
+                                    <input type="text" class="form-control input-lg" name="est_ext_inst1" id="est_ext_inst1" placeholder="Institución">
                                 </div>
                             </div>
-                            <div class="col-xl-6 col-sm-12 col-12">
+                            <div class="col-xl-6 col-md-6 col-xs-6">
                                 <div class="form-group">
-                                    <label class="h3 text-dark" for="">Institución o escuela que impartio:</label>
-                                    <input type="text" class="form-control input-lg" name="" id="" placeholder="Institución">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-xl-6 col-sm-12 col-12">
-                                <div class="form-group">
-                                    <label class="h3 text-dark" for="">Fecha:</label>
-                                    <input type="date" class="form-control input-lg" name="" id="" placeholder="Fecha">
-                                </div>
-                            </div>
-                            <div class="col-xl-6 col-sm-12 col-12">
-                                <div class="form-group">
-                                    <label class="h3 text-dark" for="">Fecha:</label>
-                                    <input type="date" class="form-control input-lg" name="" id="" placeholder="Fecha">
+                                    <label class="h3 text-dark" for="est_ext_inst2">Institución o escuela que impartio:</label>
+                                    <input type="text" class="form-control input-lg" name="est_ext_inst2" id="est_ext_inst2" placeholder="Institución">
                                 </div>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-xl-6 col-sm-12 col-12">
+                            <div class="col-xl-6 col-md-6 col-xs-6">
                                 <div class="form-group">
-                                    <label class="h3 text-dark" for="">Anotaciones:</label>
-                                    <input type="text" class="form-control input-lg" name="" id="" placeholder="Anotaciones">
+                                    <label class="h3 text-dark" for="est_ext_fecha1">Fecha:</label>
+                                    <input type="date" class="form-control input-lg" name="est_ext_fecha1" id="est_ext_fecha1" placeholder="Fecha">
                                 </div>
                             </div>
-                            <div class="col-xl-6 col-sm-12 col-12">
+                            <div class="col-xl-6 col-md-6 col-xs-6">
                                 <div class="form-group">
-                                    <label class="h3 text-dark" for="">Anotaciones:</label>
-                                    <input type="text" class="form-control input-lg" name="" id="" placeholder="Anotaciones">
+                                    <label class="h3 text-dark" for="est_ext_fecha2">Fecha:</label>
+                                    <input type="date" class="form-control input-lg" name="est_ext_fecha2" id="est_ext_fecha2" placeholder="Fecha">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xl-6 col-md-6 col-xs-6">
+                                <div class="form-group">
+                                    <label class="h3 text-dark" for="est_ext_anot1">Anotaciones:</label>
+                                    <input type="text" class="form-control input-lg" name="est_ext_anot1" id="est_ext_anot1" placeholder="Anotaciones">
+                                </div>
+                            </div>
+                            <div class="col-xl-6 col-md-6 col-xs-6">
+                                <div class="form-group">
+                                    <label class="h3 text-dark" for="est_ext_anot2">Anotaciones:</label>
+                                    <input type="text" class="form-control input-lg" name="est_ext_anot2" id="est_ext_anot2" placeholder="Anotaciones">
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-xl-12 col-sm-12 col-12">
                                 <div class="card-header text-center" style="background-color: #0087C8;">
-                                    <strong class="h2" style="color:aliceblue">DOCUMENTOS PRESENTADOS </strong>
+                                    <h2 class="font-weight-bold" style="color:aliceblue">DOCUMENTOS PRESENTADOS </h2>
                                 </div>
-                                <h4 class="text-dark text-justify">Deberá seleccionar si cuenta o no con cada uno de los documentos que se presentan a continuación y las observaciones pertinentes de lo contrario no podra guardar la solicitud.</h4>
+                                <h4 class="text-dark text-justify">Deberá seleccionar si cuenta o no con cada uno de los documentos que se presentan a continuación y las observaciones pertinentes, de lo contrario no podra guardar la solicitud.</h4>
                             </div>
                         </div>
                         <div class="row">
@@ -715,132 +764,131 @@ require_once 'php/registro.controlador.php';
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td scope="row">ACTA DE NACIMIENTO O DOCUEMENTO EQUIVALENTE*</td>
+                                            <td scope="row">ACTA DE NACIMIENTO O DOCUMENTO EQUIVALENTE*</td>
                                             <td>
-                                                <div class="custom-control custom-radio custom-control-inline">
-                                                    <input type="radio" id="sct_doc_acta1" name="sct_doc_acta" class="custom-control-input">
-                                                    <label class="custom-control-label" for="sct_doc_acta1">Si</label>
-                                                </div>
-                                                <div class="custom-control custom-radio custom-control-inline">
-                                                    <input type="radio" id="sct_doc_acta2" name="sct_doc_acta" class="custom-control-input" required>
-                                                    <label class="custom-control-label" for="sct_doc_acta2">No</label>
+                                                <div class="btn-group" data-toggle="buttons">
+                                                    <label class="btn btn-light">
+                                                        <input type="radio" id="est_doc_acta1" name="est_doc_acta" value="Si" required autocomplete="off"> Si
+                                                    </label>
+                                                    <label class="btn btn-light">
+                                                        <input type="radio" id="est_doc_acta2" name="est_doc_acta" value="No" autocomplete="off"> No
+                                                    </label>
                                                 </div>
                                             </td>
                                             <td>
                                                 <div class="form-group">
-                                                    <input type="text" class="form-control input-lg" name="sct_observaciones_acta" id="sct_observaciones_acta" placeholder="Ingrese tus observaciones">
+                                                    <input type="text" class="form-control input-lg" name="est_observaciones_acta" id="est_observaciones_acta" placeholder="Ingrese tus observaciones">
                                                 </div>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td scope="row">INDENTIFICACIÓN OFICIAL(INE)*</td>
                                             <td>
-                                                <div class="custom-control custom-radio custom-control-inline">
-                                                    <input type="radio" id="sct_doc_ine1" name="sct_doc_ine" class="custom-control-input">
-                                                    <label class="custom-control-label" for="sct_doc_ine1">Si</label>
-                                                </div>
-                                                <div class="custom-control custom-radio custom-control-inline">
-                                                    <input type="radio" id="sct_doc_ine2" name="sct_doc_ine" class="custom-control-input" required>
-                                                    <label class="custom-control-label" for="sct_doc_ine2">No</label>
+                                                <div class="btn-group" data-toggle="buttons">
+                                                    <label class="btn btn-light">
+                                                        <input type="radio" id="est_doc_ine1" name="est_doc_ine" value="Si" required autocomplete="off"> Si
+                                                    </label>
+                                                    <label class="btn btn-light">
+                                                        <input type="radio" id="est_doc_ine2" name="est_doc_ine" value="No" autocomplete="off"> No
+                                                    </label>
                                                 </div>
                                             </td>
                                             <td>
                                                 <div class="form-group">
-                                                    <input type="text" class="form-control input-lg" name="sct_observaciones_ine" id="sct_observaciones_ine" placeholder="Ingrese tus observaciones">
+                                                    <input type="text" class="form-control input-lg" name="est_observaciones_ine" id="est_observaciones_ine" placeholder="Ingrese tus observaciones">
                                                 </div>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td scope="row">CLAVE ÚNICA DE REGISTRO DE POBLACIÓN(CURP)*</td>
                                             <td>
-                                                <div class="custom-control custom-radio custom-control-inline">
-                                                    <input type="radio" id="sct_doc_curp1" name="sct_doc_curp" class="custom-control-input">
-                                                    <label class="custom-control-label" for="sct_doc_curp1">Si</label>
-                                                </div>
-                                                <div class="custom-control custom-radio custom-control-inline">
-                                                    <input type="radio" id="sct_doc_curp2" name="sct_doc_curp" class="custom-control-input" required>
-                                                    <label class="custom-control-label" for="sct_doc_curp2">No</label>
+                                                <div class="btn-group" data-toggle="buttons">
+                                                    <label class="btn btn-light">
+                                                        <input type="radio" id="est_doc_curp1" name="est_doc_curp" value="Si" required autocomplete="off"> Si
+                                                    </label>
+                                                    <label class="btn btn-light">
+                                                        <input type="radio" id="est_doc_curp2" name="est_doc_curp" value="No" autocomplete="off"> No
+                                                    </label>
                                                 </div>
                                             </td>
                                             <td>
                                                 <div class="form-group">
-                                                    <input type="text" class="form-control input-lg" name="sct_observaciones_curp" id="sct_observaciones_curp" placeholder="Ingrese tus observaciones">
+                                                    <input type="text" class="form-control input-lg" name="est_observaciones_curp" id="est_observaciones_curp" placeholder="Ingrese tus observaciones">
                                                 </div>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td scope="row">ANTECEDENTE ACADÉMICO QUE ACREDITE LA SECUNDARIA*</td>
                                             <td>
-                                                <div class="custom-control custom-radio custom-control-inline">
-                                                    <input type="radio" id="sct_doc_ant_acd1" name="sct_doc_ant_acd" class="custom-control-input">
-                                                    <label class="custom-control-label" for="sct_doc_ant_acd1">Si</label>
-                                                </div>
-                                                <div class="custom-control custom-radio custom-control-inline">
-                                                    <input type="radio" id="sct_doc_ant_acd2" name="sct_doc_ant_acd" class="custom-control-input" required>
-                                                    <label class="custom-control-label" for="sct_doc_ant_acd2">No</label>
+                                                <div class="btn-group" data-toggle="buttons">
+                                                    <label class="btn btn-light">
+                                                        <input type="radio" id="est_doc_ant_acd1" name="est_doc_ant_acd" value="Si" required autocomplete="off"> Si
+                                                    </label>
+                                                    <label class="btn btn-light">
+                                                        <input type="radio" id="est_doc_ant_acd2" name="est_doc_ant_acd" value="No" autocomplete="off"> No
+                                                    </label>
                                                 </div>
                                             </td>
                                             <td>
                                                 <div class="form-group">
-                                                    <input type="text" class="form-control input-lg" name="sct_observaciones_ant_acd" id="sct_observaciones_ant_acd" placeholder="Ingrese tus observaciones">
+                                                    <input type="text" class="form-control input-lg" name="est_observaciones_ant_acd" id="est_observaciones_ant_acd" placeholder="Ingrese tus observaciones">
                                                 </div>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td scope="row">CERTIFICADO PARCIAL DE BACHILLERATO*</td>
                                             <td>
-                                                <div class="custom-control custom-radio custom-control-inline">
-                                                    <input type="radio" id="sct_doc_crt_bach1" name="sct_doc_crt_bach" class="custom-control-input">
-                                                    <label class="custom-control-label" for="sct_doc_crt_bach1">Si</label>
-                                                </div>
-                                                <div class="custom-control custom-radio custom-control-inline">
-                                                    <input type="radio" id="sct_doc_crt_bach2" name="sct_doc_crt_bach" class="custom-control-input" required>
-                                                    <label class="custom-control-label" for="sct_doc_crt_bach2">No</label>
+                                                <div class="btn-group" data-toggle="buttons">
+                                                    <label class="btn btn-light">
+                                                        <input type="radio" id="est_doc_crt_bach1" name="est_doc_crt_bach" value="Si" required autocomplete="off"> Si
+                                                    </label>
+                                                    <label class="btn btn-light">
+                                                        <input type="radio" id="est_doc_crt_bach2" name="est_doc_crt_bach" value="No" autocomplete="off"> No
+                                                    </label>
                                                 </div>
                                             </td>
                                             <td>
                                                 <div class="form-group">
-                                                    <input type="text" class="form-control input-lg" name="sct_observaciones_crt_bach" id="sct_observaciones_crt_bach" placeholder="Ingrese tus observaciones">
+                                                    <input type="text" class="form-control input-lg" name="est_observaciones_crt_bach" id="est_observaciones_crt_bach" placeholder="Ingrese tus observaciones">
                                                 </div>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td scope="row">BOLETAS O CONSTANCIA DE GRADOS DE BACHILLERATO*</td>
                                             <td>
-                                                <div class="custom-control custom-radio custom-control-inline">
-                                                    <input type="radio" id="sct_doc_cntc_bach1" name="sct_doc_cntc_bach" class="custom-control-input">
-                                                    <label class="custom-control-label" for="sct_doc_cntc_bach1">Si</label>
-                                                </div>
-                                                <div class="custom-control custom-radio custom-control-inline">
-                                                    <input type="radio" id="sct_doc_cntc_bach2" name="sct_doc_cntc_bach" class="custom-control-input" required>
-                                                    <label class="custom-control-label" for="sct_doc_cntc_bach2">No</label>
+                                                <div class="btn-group" data-toggle="buttons">
+                                                    <label class="btn btn-light">
+                                                        <input type="radio" id="est_doc_cntc_bach1" name="est_doc_cntc_bach" required autocomplete="off"> Si
+                                                    </label>
+                                                    <label class="btn btn-light">
+                                                        <input type="radio" id="est_doc_cntc_bach2" name="est_doc_cntc_bach" autocomplete="off"> No
+                                                    </label>
                                                 </div>
                                             </td>
                                             <td>
                                                 <div class="form-group">
-                                                    <input type="text" class="form-control input-lg" name="sct_observaciones_cntc_bach" id="sct_observaciones_cntc_bach" placeholder="Ingrese tus observaciones">
+                                                    <input type="text" class="form-control input-lg" name="est_observaciones_cntc_bach" id="est_observaciones_cntc_bach" placeholder="Ingrese tus observaciones">
                                                 </div>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td scope="row">PAGO DE DERECHOS*</td>
                                             <td>
-                                                <div class="custom-control custom-radio custom-control-inline">
-                                                    <input type="radio" id="sct_doc_derechos1" name="sct_doc_derechos" class="custom-control-input">
-                                                    <label class="custom-control-label" for="sct_doc_derechos1">Si</label>
-                                                </div>
-                                                <div class="custom-control custom-radio custom-control-inline">
-                                                    <input type="radio" id="sct_doc_derechos2" name="sct_doc_derechos" class="custom-control-input">
-                                                    <label class="custom-control-label" for="sct_doc_derechos2">No</label>
+                                                <div class="btn-group" data-toggle="buttons">
+                                                    <label class="btn btn-light">
+                                                        <input type="radio" id="est_doc_derechos1" name="est_doc_derechos" required autocomplete="off"> Si
+                                                    </label>
+                                                    <label class="btn btn-light">
+                                                        <input type="radio" id="est_doc_derechos2" name="est_doc_derechos" autocomplete="off"> No
+                                                    </label>
                                                 </div>
                                             </td>
                                             <td>
                                                 <div class="form-group">
-                                                    <input type="text" class="form-control input-lg" name="sct_observaciones_derechos" id="sct_observaciones_derechos" placeholder="Ingrese tus observaciones">
+                                                    <input type="text" class="form-control input-lg" name="est_observaciones_derechos" id="est_observaciones_derechos" placeholder="Ingrese tus observaciones">
                                                 </div>
                                             </td>
                                         </tr>
-
                                     </tbody>
                                 </table>
                             </div>
@@ -865,13 +913,13 @@ require_once 'php/registro.controlador.php';
     <script src="js/jquery.main.js" defer></script>
     <script>
         $(document).ready(function() {
-            $("#sct_estado").on("change", function(e) {
+            $("#est_estado").on("change", function(e) {
                 e.preventDefault()
                 var estado = $(this).val();
                 if (estado == "") {
                     return;
                 }
-                $('#sct_municipio option').remove();
+                $('#est_municipio option').remove();
                 $.ajax({
                     type: "GET",
                     url: `https://api-cp.multiservicios-web.com.mx/query/get_municipio_por_estado/${estado}?token=cf683454-21ac-40c1-a32f-daaa44796206`,
@@ -881,21 +929,21 @@ require_once 'php/registro.controlador.php';
                     success: function(res) {
                         const dataArray = res.response.municipios
                         console.log(dataArray)
-                        $("#sct_municipio").append(`<option value="">Seleccionar</option>`);
+                        $("#est_municipio").append(`<option value="">Seleccionar</option>`);
                         dataArray.forEach(element => {
-                            $("#sct_municipio").append(`<option value="${element}">${element}</option>`);
+                            $("#est_municipio").append(`<option value="${element}">${element}</option>`);
                         });
 
                     }
                 });
             });
-            $("#sct_municipio").on("change", function(e) {
+            $("#est_municipio").on("change", function(e) {
                 e.preventDefault()
                 var municipio = $(this).val();
                 if (municipio == "") {
                     return;
                 }
-                $('#sct_colonia option').remove();
+                $('#est_colonia option').remove();
                 $.ajax({
                     type: "GET",
                     url: `https://api-cp.multiservicios-web.com.mx/query/get_colonia_por_municipio/${municipio}?token=cf683454-21ac-40c1-a32f-daaa44796206`,
@@ -905,9 +953,9 @@ require_once 'php/registro.controlador.php';
                     success: function(res) {
                         const dataArray = res.response.colonia
                         console.log(dataArray)
-                        $("#sct_colonia").append(`<option value="">Seleccionar</option>`);
+                        $("#est_colonia").append(`<option value="">Seleccionar</option>`);
                         dataArray.forEach(element => {
-                            $("#sct_colonia").append(`<option value="${element}">${element}</option>`);
+                            $("#est_colonia").append(`<option value="${element}">${element}</option>`);
                         });
 
                     }
@@ -915,13 +963,13 @@ require_once 'php/registro.controlador.php';
             });
 
 
-            $("#sct_inst_estado").on("change", function(e) {
+            $("#est_inst_estado").on("change", function(e) {
                 e.preventDefault()
                 var estado = $(this).val();
                 if (estado == "") {
                     return;
                 }
-                $('#sct_inst_municipio option').remove();
+                $('#est_inst_municipio option').remove();
                 $.ajax({
                     type: "GET",
                     url: `https://api-cp.multiservicios-web.com.mx/query/get_municipio_por_estado/${estado}?token=cf683454-21ac-40c1-a32f-daaa44796206`,
@@ -931,21 +979,21 @@ require_once 'php/registro.controlador.php';
                     success: function(res) {
                         const dataArray = res.response.municipios
                         console.log(dataArray)
-                        $("#sct_inst_municipio").append(`<option value="">Seleccionar</option>`);
+                        $("#est_inst_municipio").append(`<option value="">Seleccionar</option>`);
                         dataArray.forEach(element => {
-                            $("#sct_inst_municipio").append(`<option value="${element}">${element}</option>`);
+                            $("#est_inst_municipio").append(`<option value="${element}">${element}</option>`);
                         });
 
                     }
                 });
             });
-            $("#sct_inst_municipio").on("change", function(e) {
+            $("#est_inst_municipio").on("change", function(e) {
                 e.preventDefault()
                 var municipio = $(this).val();
                 if (municipio == "") {
                     return;
                 }
-                $('#sct_inst_colonia option').remove();
+                $('#est_inst_colonia option').remove();
                 $.ajax({
                     type: "GET",
                     url: `https://api-cp.multiservicios-web.com.mx/query/get_colonia_por_municipio/${municipio}?token=cf683454-21ac-40c1-a32f-daaa44796206`,
@@ -955,13 +1003,49 @@ require_once 'php/registro.controlador.php';
                     success: function(res) {
                         const dataArray = res.response.colonia
                         console.log(dataArray)
-                        $("#sct_inst_colonia").append(`<option value="">Seleccionar</option>`);
+                        $("#est_inst_colonia").append(`<option value="">Seleccionar</option>`);
                         dataArray.forEach(element => {
-                            $("#sct_inst_colonia").append(`<option value="${element}">${element}</option>`);
+                            $("#est_inst_colonia").append(`<option value="${element}">${element}</option>`);
                         });
 
                     }
                 });
+            });
+
+            $("#formCuestionario").on("submit", function(e) {
+                e.preventDefault();
+                var datos = new FormData(this)
+                datos.append("btnEncuesta", true);
+                $.ajax({
+                    type: "POST",
+                    url: 'php/form-cuestionario.php',
+                    data: datos,
+                    dataType: "json",
+                    processData: false,
+                    contentType: false,
+                    success: function(res) {
+                        if (res.status) {
+                            swal({
+                                    title: "¡Muy bien!",
+                                    text: res.mensaje,
+                                    icon: "success",
+                                    buttons: [false, "Continuar"],
+                                    dangerMode: true,
+                                    closeOnClickOutside: false,
+                                })
+                                .then((willDelete) => {
+                                    if (willDelete) {
+                                        window.location.reload();
+                                    } else {
+                                        window.location.reload();
+                                    }
+                                });
+                        } else {
+                            toastr.error(res.mensaje, "¡Error!");
+                        }
+                    }
+                });
+
             });
 
 
