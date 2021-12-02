@@ -1,6 +1,10 @@
 <?php
+
+include_once '../config.php';
+
 if (isset($_POST['btnEncuesta'])) {
 
+    
     //Lo primerito, creamos una variable iniciando curl, pasándole la url
     $ch = curl_init(HTTP_HOST . 'api/api.php/create/encuesta');
 
