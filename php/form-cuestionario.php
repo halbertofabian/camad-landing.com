@@ -1,12 +1,16 @@
 <?php
 
-include_once '../config.php';
+// include_once '../config.php';
 
 if (isset($_POST['btnEncuesta'])) {
 
-    
+    $_POST['est_curp'] = strtoupper($_POST['est_curp']);
+    $_POST['est_nombre'] = strtoupper($_POST['est_nombre']);
+    $_POST['est_app'] = strtoupper($_POST['est_app']);
+    $_POST['est_apm'] = strtoupper($_POST['est_apm']);
+    $_POST['est_nom_comp'] = strtoupper($_POST['est_nom_comp']);
     //Lo primerito, creamos una variable iniciando curl, pasándole la url
-    $ch = curl_init(HTTP_HOST . 'api/api.php/create/encuesta');
+    $ch = curl_init('http://localhost/camad-landing.com/api/api.php/create/encuesta');
 
     //especificamos el POST (tambien podemos hacer peticiones enviando datos por GET
     curl_setopt($ch, CURLOPT_POST, 1);
@@ -20,5 +24,10 @@ if (isset($_POST['btnEncuesta'])) {
     //recogemos la respuesta
     $respuesta = curl_exec($ch);
 
-    echo json_encode($respuesta, true);
+    echo $respuesta;
+
+    $error = curl_error($ch);
+
+    //y finalmente cerramos curl
+    curl_close($ch);
 }

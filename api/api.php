@@ -186,61 +186,61 @@ $app->post("/create/encuesta", function () use ($app) {
 		'{$app->request->post("est_estado")}',
 		'{$app->request->post("est_municipio")}',
 		'{$app->request->post("est_colonia")}',
-		'{$app->request->post("est_calle")}'
-		'{$app->request->post("est_num_ext")}'
-		'{$app->request->post("est_num_int")}'
-		'{$app->request->post("est_codigo_postal")}'
-		'{$app->request->post("est_lada_tel_fijo")}'
-		'{$app->request->post("est_tel_fijo")}'
-		'{$app->request->post("est_lada_tel_movil")}'
-		'{$app->request->post("est_tel_movil")}'
-		'{$app->request->post("est_inst_nom")}'
-		'{$app->request->post("est_inst_tipo")}'
-		'{$app->request->post("est_inst_pais")}'
-		'{$app->request->post("est_inst_estado")}'
-		'{$app->request->post("est_inst_municipio")}'
-		'{$app->request->post("est_inst_colonia")}'
-		'{$app->request->post("est_inst_calle")}'
-		'{$app->request->post("est_inst_num_ext")}'
-		'{$app->request->post("est_inst_cod_pos")}'
-		'{$app->request->post("est_inst_tel")}'
-		'{$app->request->post("est_inst_correo")}'
-		'{$app->request->post("est_exp_nom_emp1")}'
-		'{$app->request->post("est_exp_cargo1")}'
-		'{$app->request->post("est_exp_tiempo1")}'
-		'{$app->request->post("est_exp_tel1")}'
-		'{$app->request->post("est_exp_comprobante1")}'
-		'{$app->request->post("est_exp_nom_emp2")}'
-		'{$app->request->post("est_exp_cargo2")}'
-		'{$app->request->post("est_exp_tiempo2")}'
-		'{$app->request->post("est_exp_tel2")}'
-		'{$app->request->post("est_exp_comprobante2")}'
-		'{$app->request->post("est_exp_nom_emp3")}'
-		'{$app->request->post("est_exp_cargo3")}'
-		'{$app->request->post("est_exp_tiempo3")}'
-		'{$app->request->post("est_exp_tel3")}'
-		'{$app->request->post("est_exp_comprobante3")}'
-		'{$app->request->post("est_ext_curso1")}'
-		'{$app->request->post("est_ext_inst1")}'
-		'{$app->request->post("est_ext_fecha1")}'
-		'{$app->request->post("est_ext_anot1")}'
-		'{$app->request->post("est_ext_curso2")}'
-		'{$app->request->post("est_ext_inst2")}'
-		'{$app->request->post("est_ext_fecha2")}'
-		'{$app->request->post("est_ext_anot2")}'
-		'{$app->request->post("est_doc_acta")}'
-		'{$app->request->post("est_observaciones_acta")}'
-		'{$app->request->post("est_doc_ine")}'
-		'{$app->request->post("est_observaciones_ine")}'
-		'{$app->request->post("est_doc_curp")}'
-		'{$app->request->post("est_observaciones_curp")}'
-		'{$app->request->post("est_doc_ant_acd")}'
-		'{$app->request->post("est_observaciones_ant_acd")}'
-		'{$app->request->post("est_doc_crt_bach")}'
-		'{$app->request->post("est_observaciones_crt_bach")}'
-		'{$app->request->post("est_doc_cntc_bach")}'
-		'{$app->request->post("est_observaciones_cntc_bach")}'
-		'{$app->request->post("est_doc_derechos")}'
+		'{$app->request->post("est_calle")}',
+		'{$app->request->post("est_num_ext")}',
+		'{$app->request->post("est_num_int")}',
+		'{$app->request->post("est_codigo_postal")}',
+		'{$app->request->post("est_lada_tel_fijo")}',
+		'{$app->request->post("est_tel_fijo")}',
+		'{$app->request->post("est_lada_tel_movil")}',
+		'{$app->request->post("est_tel_movil")}',
+		'{$app->request->post("est_inst_nom")}',
+		'{$app->request->post("est_inst_tipo")}',
+		'{$app->request->post("est_inst_pais")}',
+		'{$app->request->post("est_inst_estado")}',
+		'{$app->request->post("est_inst_municipio")}',
+		'{$app->request->post("est_inst_colonia")}',
+		'{$app->request->post("est_inst_calle")}',
+		'{$app->request->post("est_inst_num_ext")}',
+		'{$app->request->post("est_inst_cod_pos")}',
+		'{$app->request->post("est_inst_tel")}',
+		'{$app->request->post("est_inst_correo")}',
+		'{$app->request->post("est_exp_nom_emp1")}',
+		'{$app->request->post("est_exp_cargo1")}',
+		'{$app->request->post("est_exp_tiempo1")}',
+		'{$app->request->post("est_exp_tel1")}',
+		'{$app->request->post("est_exp_comprobante1")}',
+		'{$app->request->post("est_exp_nom_emp2")}',
+		'{$app->request->post("est_exp_cargo2")}',
+		'{$app->request->post("est_exp_tiempo2")}',
+		'{$app->request->post("est_exp_tel2")}',
+		'{$app->request->post("est_exp_comprobante2")}',
+		'{$app->request->post("est_exp_nom_emp3")}',
+		'{$app->request->post("est_exp_cargo3")}',
+		'{$app->request->post("est_exp_tiempo3")}',
+		'{$app->request->post("est_exp_tel3")}',
+		'{$app->request->post("est_exp_comprobante3")}',
+		'{$app->request->post("est_ext_curso1")}',
+		'{$app->request->post("est_ext_inst1")}',
+		'{$app->request->post("est_ext_fecha1")}',
+		'{$app->request->post("est_ext_anot1")}',
+		'{$app->request->post("est_ext_curso2")}',
+		'{$app->request->post("est_ext_inst2")}',
+		'{$app->request->post("est_ext_fecha2")}',
+		'{$app->request->post("est_ext_anot2")}',
+		'{$app->request->post("est_doc_acta")}',
+		'{$app->request->post("est_observaciones_acta")}',
+		'{$app->request->post("est_doc_ine")}',
+		'{$app->request->post("est_observaciones_ine")}',
+		'{$app->request->post("est_doc_curp")}',
+		'{$app->request->post("est_observaciones_curp")}',
+		'{$app->request->post("est_doc_ant_acd")}',
+		'{$app->request->post("est_observaciones_ant_acd")}',
+		'{$app->request->post("est_doc_crt_bach")}',
+		'{$app->request->post("est_observaciones_crt_bach")}',
+		'{$app->request->post("est_doc_cntc_bach")}',
+		'{$app->request->post("est_observaciones_cntc_bach")}',
+		'{$app->request->post("est_doc_derechos")}',
 		'{$app->request->post("est_observaciones_derechos")}'
 		)";
 
@@ -250,11 +250,14 @@ $app->post("/create/encuesta", function () use ($app) {
 
 	// echo json_encode($pps->errorInfo());
 
+	// return;
+
 	if ($pps->execute()) {
-		return array("status" => true, "mensaje" => "Su regitro se a guardado correctamente!");
+		$result = array("status" => true, "mensaje" => "Su regitro se a guardado correctamente!");
 	} else {
-		return array("status" => false, "mensaje" => "Hubo un error al guardar su registro, intentelo nuevaente");
+		$result = array("status" => false, "mensaje" => "Hubo un error al guardar su registro, intentelo nuevaente");
 	}
+	echo json_encode($result);
 });
 
 $app->run();

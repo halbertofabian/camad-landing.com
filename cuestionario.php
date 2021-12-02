@@ -202,7 +202,7 @@ require_once 'php/form-cuestionario.php';
                         <div class="row">
                             <div class="col-xl-4 col-md-4 col-sm-12 col-12">
                                 <div class="form-group">
-                                    <label class="h3 text-dark" for="est_nombre">Nombres*:</label>
+                                    <label class="h3 text-dark" for="est_nombre">Nombre(s)*:</label>
                                     <input type="text" class="form-control input-lg" name="est_nombre" id="est_nombre" required placeholder="Ingresa tu(s) nombre(s)">
                                 </div>
                             </div>
@@ -858,10 +858,10 @@ require_once 'php/form-cuestionario.php';
                                             <td>
                                                 <div class="btn-group" data-toggle="buttons">
                                                     <label class="btn btn-light">
-                                                        <input type="radio" id="est_doc_cntc_bach1" name="est_doc_cntc_bach" required autocomplete="off"> Si
+                                                        <input type="radio" id="est_doc_cntc_bach1" name="est_doc_cntc_bach" value="Si" required autocomplete="off"> Si
                                                     </label>
                                                     <label class="btn btn-light">
-                                                        <input type="radio" id="est_doc_cntc_bach2" name="est_doc_cntc_bach" autocomplete="off"> No
+                                                        <input type="radio" id="est_doc_cntc_bach2" name="est_doc_cntc_bach" value="No" autocomplete="off"> No
                                                     </label>
                                                 </div>
                                             </td>
@@ -876,10 +876,10 @@ require_once 'php/form-cuestionario.php';
                                             <td>
                                                 <div class="btn-group" data-toggle="buttons">
                                                     <label class="btn btn-light">
-                                                        <input type="radio" id="est_doc_derechos1" name="est_doc_derechos" required autocomplete="off"> Si
+                                                        <input type="radio" id="est_doc_derechos1" name="est_doc_derechos" value="Si" required autocomplete="off"> Si
                                                     </label>
                                                     <label class="btn btn-light">
-                                                        <input type="radio" id="est_doc_derechos2" name="est_doc_derechos" autocomplete="off"> No
+                                                        <input type="radio" id="est_doc_derechos2" name="est_doc_derechos" value="No" autocomplete="off"> No
                                                     </label>
                                                 </div>
                                             </td>
@@ -1041,7 +1041,12 @@ require_once 'php/form-cuestionario.php';
                                     }
                                 });
                         } else {
-                            toastr.error(res.mensaje, "¡Error!");
+                            swal({
+                                title: "ERROR!",
+                                text: res.mensaje,
+                                icon: "error",
+                                button: "OK",
+                            });
                         }
                     }
                 });
