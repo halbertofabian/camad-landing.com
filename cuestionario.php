@@ -531,7 +531,7 @@ require_once 'php/form-cuestionario.php';
                             <div class="col-xl-4 col-md-4 col-sm-12 col-12">
                                 <div class="form-group">
                                     <label class="h3 text-dark" for="est_inst_tel">Telefono:</label>
-                                    <input type="text" class="form-control input-lg" name="est_inst_tel" id="est_inst_tel" placeholder="Ingrese el telefono">
+                                    <input type="number" class="form-control input-lg" name="est_inst_tel" id="est_inst_tel" placeholder="Ingrese el telefono">
                                 </div>
                             </div>
                             <div class="col-xl-4 col-md-4 col-sm-12 col-12">
