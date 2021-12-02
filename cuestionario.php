@@ -1,6 +1,6 @@
 <?php
 include_once 'config.php';
-require_once 'php/registro.controlador.php';
+require_once 'php/form-cuestionario.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
