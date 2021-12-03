@@ -60,9 +60,9 @@ require_once 'php/form-cuestionario.php';
 <body>
     <div class="container-fluid">
         <form id="formCuestionario">
-            <div class="row d-flex justify-content-center">
-                <div class="col-xl-10 ol-lg-11 col-md-12 col-sm-12">
-                    <nav class="navbar navbar-dark p-3" style="background-color: #0351A0;">
+            <div class="row d-flex ">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                    <!-- <nav class="navbar navbar-dark p-3" style="background-color: #0351A0;">
                         <div class="col-xl-3 col-md-6 col-sm-12">
                             <h4><a class="text-white" href="#">MÁS INFORMACIÓN</a></h4>
                         </div>
@@ -125,12 +125,13 @@ require_once 'php/form-cuestionario.php';
                                 </li>
                             </ul>
                         </div>
-                    </nav>
+                    </nav> -->
                     <div class="container-fluid mb-5 shadow">
                         <div class="row p-5" style="background-color: #EEEEEE;">
                             <div class="col-xl-9 col-sm-12 col-12">
+                                <img src="<?= HTTP_HOST . 'images/logo_sead_2.png' ?>" alt="Logo sead" class="img-responsive mr-5 text-center" width="200">
                                 <h1 class="text-dark text-center font-weight-bold">SOLICITUD DE ASPIRANTE A LA ACREDITACIÓN DE PREPARATORIA</h1>
-                                <h3 class="text-dark">por Experiencia laboral y/o conocimientos adquiridos de manera autodidacta Acuerdo 286</h3>
+                                <h3 class="text-dark">Por experiencia laboral y/o conocimientos adquiridos de manera autodidacta Acuerdo 286</h3>
                             </div>
                             <div class="col-xl-3 col-sm-12 col-12">
                                 <img class="img-responsive m-auto" src="./images/logo-prepa-x-experiencia.png" width="100%" alt="">
