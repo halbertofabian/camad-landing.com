@@ -234,7 +234,7 @@ require_once 'php/form-cuestionario.php';
                             <div class="col-xl-4 col-md-4 col-sm-12 col-12">
                                 <div class="form-group">
                                     <label class="h3 text-dark" for="est_fecha_nac">Fecha de nacimiento*:</label>
-                                    <input type="date" class="form-control input-lg" name="est_fecha_nac" id="est_fecha_nac" required placeholder="Selecciona">
+                                    <input type="text" class="form-control input-lg date" name="est_fecha_nac" id="est_fecha_nac" required placeholder="dd-mm-aaaa">
                                 </div>
                             </div>
                             <div class="col-xl-4 col-md-4 col-sm-12 col-12">
@@ -721,13 +721,13 @@ require_once 'php/form-cuestionario.php';
                             <div class="col-xl-6 col-md-6 col-xs-6">
                                 <div class="form-group">
                                     <label class="h3 text-dark" for="est_ext_fecha1">Fecha:</label>
-                                    <input type="date" class="form-control input-lg" name="est_ext_fecha1" id="est_ext_fecha1" placeholder="Fecha">
+                                    <input type="text" class="form-control input-lg date" name="est_ext_fecha1" id="est_ext_fecha1" placeholder="dd-mm-aaaa" >
                                 </div>
                             </div>
                             <div class="col-xl-6 col-md-6 col-xs-6">
                                 <div class="form-group">
                                     <label class="h3 text-dark" for="est_ext_fecha2">Fecha:</label>
-                                    <input type="date" class="form-control input-lg" name="est_ext_fecha2" id="est_ext_fecha2" placeholder="Fecha">
+                                    <input type="text" class="form-control input-lg date" name="est_ext_fecha2" id="est_ext_fecha2" placeholder="dd-mm-aaaa">
                                 </div>
                             </div>
                         </div>
@@ -912,6 +912,7 @@ require_once 'php/form-cuestionario.php';
     <script src="js/jquery.js"></script>
     <script src="js/plugins.js" defer></script>
     <script src="js/jquery.main.js" defer></script>
+    <script src="js/jquery.mask.js" defer></script>
     <script>
         $(document).ready(function() {
             $("#est_estado").on("change", function(e) {
@@ -1054,7 +1055,7 @@ require_once 'php/form-cuestionario.php';
 
             });
 
-
+            $('.date').mask('00-00-0000');
         });
     </script>
 
