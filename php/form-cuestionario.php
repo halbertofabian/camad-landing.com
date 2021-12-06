@@ -10,8 +10,8 @@ if (isset($_POST['btnEncuesta'])) {
     $_POST['est_apm'] = strtoupper($_POST['est_apm']);
     $_POST['est_nom_comp'] = strtoupper($_POST['est_nom_comp']);
     $_POST['est_fecha_nac'] = date("Y-m-d", strtotime($_POST['est_fecha_nac']));
-    $_POST['est_ext_fecha1'] = date("Y-m-d", strtotime($_POST['est_ext_fecha1']));
-    $_POST['est_ext_fecha2'] = date("Y-m-d", strtotime($_POST['est_ext_fecha2']));
+    $_POST['est_ext_fecha1'] = !empty($_POST['est_ext_fecha1']) ? date("Y-m-d", strtotime($_POST['est_ext_fecha1'])): "";
+    $_POST['est_ext_fecha2'] = !empty($_POST['est_ext_fecha2']) ? date("Y-m-d", strtotime($_POST['est_ext_fecha2'])): "";
     //Lo primerito, creamos una variable iniciando curl, pasándole la url
     $ch = curl_init('http://localhost/camad-landing.com/api/api.php/create/encuesta');
 
